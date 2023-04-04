@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Recipe} from "../recipe.model";
 
 @Component({
@@ -7,10 +7,18 @@ import {Recipe} from "../recipe.model";
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+
   recipes: Recipe[] = [
-    new Recipe('Lasagne', 'Delicious Spinach Lasagne', 'https://minimalistbaker.com/wp-content/uploads/2021/08/Butternut-Squash-Lasagna-Vegan-GF-Optional-Fall-inspired-veggie-packed-incredibly-comforting-and-just-10-ingredients-required-minimalistbaker-recipe-plantbased-glutenfree-lasagna-squash-10.jpg')
+    new Recipe('Lasagne', 'Delicious Spinach Lasagne', 'https://minimalistbaker.com/wp-content/uploads/2021/08/Butternut-Squash-Lasagna-Vegan-GF-Optional-Fall-inspired-veggie-packed-incredibly-comforting-and-just-10-ingredients-required-minimalistbaker-recipe-plantbased-glutenfree-lasagna-squash-10.jpg'),
+    new Recipe('Rhabarberkuchen', 'Saftiger feinherber Rhabarberkuchen', 'https://www.gutekueche.ch/upload/rezept/6400/saftiger-rhabarberkuchen.jpg')
   ]
+
+  @Output() currentRecipe = new EventEmitter<Recipe>()
+
   ngOnInit(): void {
   }
 
+  onRecipeClick(recipe: Recipe) {
+    this.currentRecipe.emit(recipe)
+  }
 }

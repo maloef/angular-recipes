@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  @Output() display = new EventEmitter<string>()
+
+  onSelectShoppingList() {
+    this.display.emit('shopping-list')
+  }
+
+  onSelectRecipes() {
+    this.display.emit('recipes')
+  }
 }
