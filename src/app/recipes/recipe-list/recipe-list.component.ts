@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Recipe} from "../recipe.model";
+import {RecipeService} from "../recipe.service";
 
 @Component({
   selector: 'app-recipe-list',
@@ -8,17 +9,9 @@ import {Recipe} from "../recipe.model";
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Recipe[] = [
-    new Recipe('Lasagne', 'Delicious Spinach Lasagne', 'https://minimalistbaker.com/wp-content/uploads/2021/08/Butternut-Squash-Lasagna-Vegan-GF-Optional-Fall-inspired-veggie-packed-incredibly-comforting-and-just-10-ingredients-required-minimalistbaker-recipe-plantbased-glutenfree-lasagna-squash-10.jpg'),
-    new Recipe('Rhabarberkuchen', 'Saftiger feinherber Rhabarberkuchen', 'https://www.gutekueche.ch/upload/rezept/6400/saftiger-rhabarberkuchen.jpg')
-  ]
+  recipes = this.recipeService.getRecipes()
 
-  @Output() currentRecipe = new EventEmitter<Recipe>()
+  constructor(private recipeService: RecipeService) {}
 
-  ngOnInit(): void {
-  }
-
-  onRecipeClick(recipe: Recipe) {
-    this.currentRecipe.emit(recipe)
-  }
+  ngOnInit(): void {}
 }

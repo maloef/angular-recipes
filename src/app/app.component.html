@@ -2,14 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes *ngIf="display=='recipes'"></app-recipes>
-      <app-shopping-list *ngIf="display=='shopping-list'"></app-shopping-list>
+      <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      {{display}}
-    </div>
-  </div>
-
 </div>

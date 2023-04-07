@@ -7,13 +7,13 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() display = new EventEmitter<string>()
+  // @Output() display = new EventEmitter<string>()
 
-  onSelectShoppingList() {
-    this.display.emit('shopping-list')
-  }
+  // onSelectShoppingList() {
+  //   this.display.emit('shopping-list')
+  // }
 
-  onSelectRecipes() {
-    this.display.emit('recipes')
-  }
+  // onSelectRecipes() {
+  //   this.display.emit('recipes')
+  // }
 }
