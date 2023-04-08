@@ -12,9 +12,4 @@ export class AppComponent  implements OnInit {
   ngOnInit() {
     console.log("AppComponent ngOnInit")
   }
-
-  onDisplayChange($event: string) {
-    console.log("onDisplayChange")
-    this.display = $event
-  }
 }
